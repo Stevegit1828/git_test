@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Read Text File</title> 
+</head> 
+
+<body> 
+<input type="file" name="inputfile"
+      id="inputfile"> 
+<br> 
+
+<pre id="output"></pre> 
+<script>
+
+var file = document.getElementById('inputfile');
+
+file.addEventListener('change', () => {
+var txtArr = [];
+var fr = new FileReader();
+fr.onload = function() {
+  // By lines
+  var lines = this.result.split('\n');
+  for (var line = 0; line < lines.length; line++) {
+      txtArr = [...txtArr, ...(lines[line].split(" "))];
+  }
+ }
+fr.onloadend = function() {
+  console.log(txtArr);
+  document.getElementById('output').textContent=txtArr.join("");
+  document.getElementById("output").innerHTML = txtArr[1]; 
+  console.log(txtArr[1]);
+}
+</html>
