@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-</head>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Odin Links and Images</title>
+    
+    </head>
 <body>
-   <div id="result"></div>
-   <button onclick="embedElements()">Show Data</button>
-<script>
-{
-   const myArray = ["stone","paper","scissors"];
-   function embedElements(){
-      myArray.forEach(el => {
-         document.getElementById('result').innerHTML +=`<div>${el}</div><br />`;
-         // here result is the id of the div present in the dom
-      });
-   };
-}
+  <pre id="arrPrint"></pre>
+
+  <script>
+   var fs = require('fs');
+    let arr = ["Jack", "Mike", "Steve"];
+    document.getElementById("arrPrint").innerHTML = arr;
 </script>
+<pre id="filePrint"></pre>
+<script>
+   fs.readFile('./members.txt',"utf-8",function(err,data){
+           if(err) throw err;
+           var array = Array.from(data) //convert char array
+           document.getElementById("filePrint").innerHTML = array;
+           console.log(array)
+   })
+   </script>
 </body>
 </html>

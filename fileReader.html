@@ -7,48 +7,15 @@
 </head> 
 
 <body> 
-<input type="file" name="inputfile"
-      id="inputfile"> 
-<br> 
-
-<pre id="output"></pre> 
+<pre id="filePrint"></pre>
+var fs = require('fs');
 <script>
-{
-   const myArray = ["stone","paper","scissors"];
-   function embedElements(){
-      myArray.forEach(el => {
-         document.getElementById('result').innerHTML +=`<div>${el}</div><br />`;
-         // here result is the id of the div present in the dom
-      });
-   };
-}
-
-var file = document.getElementById('inputfile');
-
-file.addEventListener('change', () => {
-var txtArr = [];
-var fr = new FileReader();
-fr.onload = function() {
-  // By lines
-  var lines = this.result.split('\n');
-  for (var line = 0; line < lines.length; line++) {
-      txtArr = [...txtArr, ...(lines[line].split(" "))];
-      text = "<ul>";
-        text += "<li>" + txtArr[i] + "</li>";
-        text += "</ul>"; 
-  
-  
-    }
- }
-
-fLen = txtArr.length;
-
-
-document.getElementById("some-element").innerHTML = text;
-fr.onloadend = function() {
-  console.log(txtArr);
-  document.getElementById('output').textContent=txtArr.join("");
-  document.getElementById("output").innerHTML = txtArr[1]; 
-  console.log(txtArr[1]);
-}
+   fs.readFile('./members.txt',"utf-8",function(err,data){
+           if(err) throw err;
+           var array = Array.from(data) //convert char array
+           console.log(array)
+           document.getElementById("filePrint").innerHTML = array;
+           document.getElementById("filePrint").innerHTML = "doggy";
+})
+   </script>
 </html>
