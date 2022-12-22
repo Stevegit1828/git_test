@@ -13,14 +13,5 @@
     let arr = ["Jack", "Mike", "Steve"];
     document.getElementById("arrPrint").innerHTML = arr;
 </script>
-<pre id="filePrint"></pre>
-<script>
-   fs.readFile('./members.txt',"utf-8",function(err,data){
-           if(err) throw err;
-           var array = Array.from(data) //convert char array
-           document.getElementById("filePrint").innerHTML = array;
-           console.log(array)
-   })
-   </script>
 </body>
 </html>
