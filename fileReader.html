@@ -1,21 +1,4 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
-<title>Read Text File</title> 
-</head> 
-
-<body> 
-<pre id="filePrint"></pre>
-var fs = require('fs');
-<script>
-   fs.readFile('./members.txt',"utf-8",function(err,data){
-           if(err) throw err;
-           var array = Array.from(data) //convert char array
-           console.log(array)
-           document.getElementById("filePrint").innerHTML = array;
-           document.getElementById("filePrint").innerHTML = "doggy";
-})
-   </script>
-</html>
+exports.myDateTime = function () {
+  return Date();
+};
