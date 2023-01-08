@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+ 
+<body style="text-align:center;">
+    <h1 style="color:green;">  
+            Rock Paper Scissors 
+    </h1>
+    <h2>HTML & Javascript Game</h2>
+    <p>
+        Enter 'Rock' , 'Paper' or Scissors in the box below
+    </p>
+
+    Weapon Of Choice: <input type="text" id="myText" value="Donkey">
+    <button type="button" onclick="myFunction()">Try it</button>
+   
+    <p id="demo"></p>
+    <p id="computer"></p>
+    <p id="result"></p>
+  
+    <script>
+      console.log("Hello, World!")
+    // ********** Here the input value is stored in new variable userInput *******
+    function myFunction() {
+        var userInput = document.getElementById("myText").value;
+        userInput = userInput.toLowerCase();  
+        document.getElementById("demo").innerHTML = userInput;
+  
+  // ********* Validate user input ***************
+
+if (userInput === ('rock')) {
+document.getElementById("demo").innerHTML =   `You have chosen ${userInput}`; 
+console.log(`You have chosen ${userInput}`);
+}
+else if (userInput === ('paper')) {
+ document.getElementById("demo").innerHTML =   `You have chosen ${userInput}`; 
+ console.log(`You have chosen ${userInput}`);
+ }
+ else if (userInput === ('scissors')) {
+  document.getElementById("demo").innerHTML =   `You have chosen ${userInput}`; 
+  console.log(`You have chosen ${userInput}`);
+ }
+ else {
+  document.getElementById("demo").innerHTML =   ` ${userInput} Is not valid`; 
+  console.log(`You have chosen ${userInput}. It is not valid`);
+  return;
+ }
+//********** Get Computer Choice function *********************************
+const getComputerChoice = () => { //Step 5
+  const randomNumber = Math.floor(Math.random() * 3);
+  switch (randomNumber) {
+    case 0:
+     return 'rock';
+      break;
+    case 1:
+     return 'paper';
+     break;
+    case 2:
+      return 'scissors';
+      break;
+  }
+}
+//************ Call Function ****************
+computerChoice=getComputerChoice();
+console.log(`Computer has chosen ${computerChoice} `);
+document.getElementById("computer").innerHTML =   ` Computer choses ${computerChoice} `; 
+
+//************** Winner or Loser ***********************************
+
+if (userInput === computerChoice) {
+    document.getElementById("result").innerHTML =   ` Game was a tie.`; 
+    console.log(` Game was a tie.`);
+  } else if (userInput === 'rock') {
+      if (computerChoice === 'paper') {
+        document.getElementById("result").innerHTML =   'Computer wins with paper! Paper wraps rock.';
+        console.log('Computer wins with paper! Paper wraps rock.');
+      } 
+      else { 
+       document.getElementById("result").innerHTML = 'You win with rock! Computer chose scissors.';
+       console.log('You win with rock! Computer chose scissors.');
+      }
+    } 
+  else if (userInput === 'paper') {
+      if (computerChoice === 'scissors') {   
+     document.getElementById("result").innerHTML =  'Computer wins with scissors! Scissors cut paper.';
+     console.log('Computer wins with scissors! Scissors cut paper.');
+    } else {
+       document.getElementById("result").innerHTML = 'You win with paper! Computer chose rock.';
+       console.log( 'You win with paper! Computer chose rock.');
+      }
+  } 
+  else if (userInput === 'scissors') {
+            if (computerChoice === 'rock') {
+      document.getElementById("result").innerHTML = 'Computer wins! Rock smashed scissors.';
+      console.log('Computer wins! Rock smashed scissors.');
+      } 
+      else {
+      document.getElementById("result").innerHTML = 'You win with scissors! Scissors cut paper.';
+      console.log('Computer wins! Rock smashed scissors.');
+      }
+    }  
+}
+    </script>
+</body>
+  
+</html>
+
