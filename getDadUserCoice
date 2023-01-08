@@ -1,0 +1,67 @@
+const getUserChoice = userInput => {    //Step 1
+  userInput = userInput.toLowerCase();  //Step 2
+  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {  //Step 3
+    return userInput; 
+  } else {
+    console.log(`${userInput} is not a valid weapon choice, please choose either rock, paper or scissors.`);
+  };
+};
+ userInput='scissors' ;
+//console.log(`You have chosen ${getUserChoice('SciSSors')}`); // <--- user choice function works
+console.log(`You1 have chosen ${userInput}`); // <--- user choice function works
+
+const getComputerChoice = () => { //Step 5
+  const randomNumber = Math.floor(Math.random() * 3);
+  switch (randomNumber) {
+    case 0:
+     return 'rock';
+   //console.log(`rock');
+      break;
+    case 1:
+     return 'paper';
+    //  console.log('paper') ;
+     break;
+    case 2:
+      return 'scissors';
+      break;
+  }
+}
+
+//console.log(`Computer has chosen ${getComputerChoice()}`);   // <-- computer choice function works
+computerChoice=getComputerChoice();
+console.log(`Computer has chosen ${computerChoice}`); 
+console.log(`User has chosen ${userInput}`); 
+const determineWinner = ($computerChoice,$userInput) => {
+  console.log(`Computer has passed ${computerChoice}`); 
+  console.log(`User has passed ${userInput}`); 
+  if (userInput === computerChoice) {
+   //   if ('scissors' === 'rock') {
+    return 'Game1 was a tie.';
+    // game was a tie
+
+  } else if (userInput === 'rock') {
+      if (computerChoice === 'paper') {
+      return 'Computer wins with paper! Paper wraps rock.';
+      } 
+      else { 
+       return 'You win with rock! Computer chose scissors.';
+      }
+    } 
+  else if (userInput === 'paper') {
+      if (computerChoice === 'scissors') {
+      return 'Computer wins with scissors! Scissors cut paper.';
+      } else {
+       return 'You win with paper! Computer chose rock.';
+      }
+  } 
+  else if (userInput === 'scissors') {
+            if (computerChoice === 'rock') {
+      return 'Computer wins! Rock smashed scissors.'
+      } 
+      else {
+      return 'You win with scissors! Scissors cut paper.'
+      }
+    }  
+}
+
+console.log(determineWinner()); 
